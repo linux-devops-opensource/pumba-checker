@@ -35,4 +35,3 @@ pumba-checker accepting JSON by /api/checkpackages and returning a json describi
     }
 ]
 ```
-
