@@ -21,3 +21,18 @@ pumba-checker accepting JSON by /api/checkpackages and returning a json describi
 }
 ```
 
+## Response JSON
+```
+[
+    {
+        "name": "packagename",
+        "statusCode": 400,
+        "status": "Package is already uploaded"
+    },
+        "name": "packagename",
+        "statusCode": 200,
+        "status": "Package can be uploaded"
+    }
+]
+```
+
