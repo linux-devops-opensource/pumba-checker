@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/linux-devops-opensource/pumba-checker#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "express": "^4.17.1"
   }
 }
