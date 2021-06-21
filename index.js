@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 var axios = require('axios');
-const nexusURL= "http://20.50.53.193:8081"
+const nexusURL= "http://20.82.12.78:8081"
 const nexusAPI="/service/rest/v1/search?sha1="
 function fillArray(packageName,statusCode,desc,statusarr) {
     var object = {
