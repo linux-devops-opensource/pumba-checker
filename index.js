@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+const cors = require('cors')
+
+app.use(cors())
 app.use(express.json());
+
 var axios = require('axios');
 const nexusURL= "http://20.76.247.10:8081"
 const nexusAPI="/service/rest/v1/search?sha1="
@@ -12,6 +16,7 @@ function fillArray(packageName,statusCode,desc,statusarr) {
       };
       statusarr.push(object);
   }
+
 app.post('/api/checkpackages', async (req,res)=> {
     const data = req.body;
     const type = data.type;
