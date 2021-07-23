@@ -14,6 +14,11 @@ import {
 import {Session} from '../models';
 import {SessionRepository} from '../repositories';
 
+require('dotenv').config()
+
+const BASE_URL = process.env.REPO_BASE_URL || process.env.DEFAULT_REPO_BASE_URL
+const SEARCH_SHA1_URL = process.env.SHA1_SEARCH_API || process.env.DEFAULT_REPO_SEARCH_SHA1_API
+
 export class SessionsController {
   constructor(
     @repository(SessionRepository)
