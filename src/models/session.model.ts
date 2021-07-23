@@ -1,6 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
+import {Pkg} from './pkg.model';
 
-@model({settings: {strict: false}})
+@model()
 export class Session extends Entity {
   @property({
     type: 'string',
@@ -25,7 +26,7 @@ export class Session extends Entity {
     type: 'array',
     itemType: 'object',
   })
-  pkgs?: object[];
+  pkgs?: Pkg[];
 
   // Define well-known properties here
 
