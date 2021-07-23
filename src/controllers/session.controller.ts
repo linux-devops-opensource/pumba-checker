@@ -1,3 +1,4 @@
+import {inject} from '@loopback/core';
 import {
   FilterExcludingWhere,
   repository,
@@ -11,8 +12,9 @@ import {
   del,
   requestBody,
 } from '@loopback/rest';
-import {Session} from '../models';
+import {Pkg, Session} from '../models';
 import {SessionRepository} from '../repositories';
+import {Nexus} from '../services';
 
 require('dotenv').config()
 
@@ -23,6 +25,8 @@ export class SessionsController {
   constructor(
     @repository(SessionRepository)
     public sessionRepository: SessionRepository,
+    @inject('services.Nexus')
+    protected nexusService: Nexus
   ) { }
 
   @post('/session', {
@@ -33,7 +37,7 @@ export class SessionsController {
       }
     },
   })
-  async create(
+  async checkAssets(
     @requestBody({
       content: {
         'application/json': {
@@ -45,6 +49,14 @@ export class SessionsController {
     })
     session: Session,
   ): Promise<Session> {
+      for (let i = 0; i < session.pkgs.length; i++ ) {
+        if ((await this.nexusService.searchAssetBySha1(session.pkgs[i].sha1)).items[0]) {
+          session.pkgs[i].existInTarget = true
+        } else {
+          session.pkgs[i].existInTarget = false
+        }
+      }
+
       return this.sessionRepository.create(session);
     }
 

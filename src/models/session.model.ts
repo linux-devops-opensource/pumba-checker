@@ -26,7 +26,7 @@ export class Session extends Entity {
     type: 'array',
     itemType: 'object',
   })
-  pkgs?: Pkg[];
+  pkgs: Pkg[];
 
   // Define well-known properties here
 

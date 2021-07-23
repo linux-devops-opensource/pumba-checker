@@ -20,8 +20,13 @@ export class Pkg extends Entity {
     type: 'boolean',
     default: false,
   })
-  existInTarget?: boolean;
+  existInTarget: boolean;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  sha1: string;
 
   constructor(data?: Partial<Pkg>) {
     super(data);

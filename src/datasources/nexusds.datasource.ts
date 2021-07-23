@@ -2,11 +2,27 @@ import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
 const config = {
-  name: 'nexusDs',
-  connector: 'openapi',
-  spec: 'http://20.76.247.10:8081/service/rest/swagger.json',
-  validate: true,
-  positional: false
+  name: 'nexusds',
+  connector: 'rest',
+  baseURL: 'http://20.76.247.10:8081/service/rest/',
+  crud: false,
+  options: {
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+    },
+  },
+  operations: [
+    {
+      template: {
+        method: 'GET',
+        url: 'http://20.76.247.10:8081/service/rest/v1/search/assets?sha1={sha1}',
+      },
+      functions: {
+        searchAssetBySha1: ['sha1'],
+      },
+    },
+  ],
 };
 
 // Observe application's life cycle to disconnect the datasource when
@@ -14,13 +30,13 @@ const config = {
 // gracefully. The `stop()` method is inherited from `juggler.DataSource`.
 // Learn more at https://loopback.io/doc/en/lb4/Life-cycle.html
 @lifeCycleObserver('datasource')
-export class NexusDsDataSource extends juggler.DataSource
+export class NexusdsDataSource extends juggler.DataSource
   implements LifeCycleObserver {
-  static dataSourceName = 'nexusDs';
+  static dataSourceName = 'nexusds';
   static readonly defaultConfig = config;
 
   constructor(
-    @inject('datasources.config.nexusDs', {optional: true})
+    @inject('datasources.config.nexusds', {optional: true})
     dsConfig: object = config,
   ) {
     super(dsConfig);

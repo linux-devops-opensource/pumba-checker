@@ -57,6 +57,7 @@
     "@loopback/service-proxy": "^3.2.2",
     "dotenv": "^10.0.0",
     "loopback-connector-openapi": "^6.2.0",
+    "loopback-connector-rest": "^3.7.0",
     "tslib": "^2.0.0"
   },
   "devDependencies": {
