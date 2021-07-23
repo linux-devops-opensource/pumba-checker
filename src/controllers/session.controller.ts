@@ -1,21 +1,15 @@
 import {
-  Count,
-  CountSchema,
-  Filter,
   FilterExcludingWhere,
   repository,
-  Where,
 } from '@loopback/repository';
 import {
   post,
   param,
   get,
   getModelSchemaRef,
-  patch,
   put,
   del,
   requestBody,
-  response,
 } from '@loopback/rest';
 import {Session} from '../models';
 import {SessionRepository} from '../repositories';
