@@ -22,7 +22,7 @@ export class Session extends Entity {
   })
   statusCode: number;
 
-  @property({
+  @property.array(Pkg, {
     type: 'array',
     itemType: 'object',
   })

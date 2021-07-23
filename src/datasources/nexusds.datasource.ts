@@ -1,10 +1,15 @@
 import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
 
+require('dotenv').config()
+
+const BASE_URL = process.env.REPO_BASE_URL || process.env.DEFAULT_REPO_BASE_URL || 'variable not defined'
+const SEARCH_SHA1_URL = process.env.SHA1_SEARCH_API || process.env.DEFAULT_REPO_SEARCH_SHA1_API || 'variable not defined'
+
 const config = {
   name: 'nexusds',
   connector: 'rest',
-  baseURL: 'http://20.76.247.10:8081/service/rest/',
+  baseURL: BASE_URL,
   crud: false,
   options: {
     headers: {
@@ -16,7 +21,7 @@ const config = {
     {
       template: {
         method: 'GET',
-        url: 'http://20.76.247.10:8081/service/rest/v1/search/assets?sha1={sha1}',
+        url: BASE_URL + SEARCH_SHA1_URL +'{sha1}',
       },
       functions: {
         searchAssetBySha1: ['sha1'],
