@@ -3,8 +3,8 @@ import {juggler} from '@loopback/repository';
 
 require('dotenv').config()
 
-const BASE_URL = process.env.REPO_BASE_URL || process.env.DEFAULT_REPO_BASE_URL || 'variable not defined'
-const SEARCH_SHA1_URL = process.env.SHA1_SEARCH_API || process.env.DEFAULT_REPO_SEARCH_SHA1_API || 'variable not defined'
+const BASE_URL = process.env.REPO_BASE_URL ?? process.env.DEFAULT_REPO_BASE_URL ?? 'variable not defined'
+const SEARCH_SHA1_URL = process.env.SHA1_SEARCH_API ?? process.env.DEFAULT_REPO_SEARCH_SHA1_API ?? 'variable not defined'
 
 const config = {
   name: 'nexusds',

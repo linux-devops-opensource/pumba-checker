@@ -44,11 +44,11 @@ export class SessionsController {
     })
     session: Session,
   ): Promise<Session> {
-      for (let i = 0; i < session.pkgs.length; i++ ) {
-        if ((await this.nexusService.searchAssetBySha1(session.pkgs[i].sha1)).items[0]) {
-          session.pkgs[i].existInTarget = true
+      for (const pkg of session.pkgs) {
+        if ((await this.nexusService.searchAssetBySha1(pkg.sha1)).items[0]) {
+          pkg.existInTarget = true
         } else {
-          session.pkgs[i].existInTarget = false
+          pkg.existInTarget = false
         }
       }
 
