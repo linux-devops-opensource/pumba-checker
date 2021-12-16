@@ -1,15 +1,4 @@
-
-> checker@0.0.1 preopenapi-spec C:\Users\adidush\Desktop\army-stuff\pumba\pumba-checker
-> npm run build
-
-
-> checker@0.0.1 build C:\Users\adidush\Desktop\army-stuff\pumba\pumba-checker
-> lb-tsc
-
-
-> checker@0.0.1 openapi-spec C:\Users\adidush\Desktop\army-stuff\pumba\pumba-checker
-> node ./dist/openapi-spec
-
+// thats the current openapi thingi before my changes - a.h
 {
   "openapi": "3.0.0",
   "info": {
