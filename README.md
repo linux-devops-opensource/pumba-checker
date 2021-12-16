@@ -10,18 +10,20 @@ schema info is in the main repo[https://github.com/linux-devops-opensource/pumba
 
 ### request 
 ``` sh 
-[Session: ]{
+// Session
+{
 	"sid": "abc12",
 	"type":"npm/maven/whatever",
-  "pkgs"[Pks[]]: [
+  	// Pkg[]
+	"pkgs": [
 		{
 			"packageName": "XXXX",
-      "version": "1.2.3",
+      			"version": "1.2.3",
 			"sha1": "9a5f699051b1e7073328f2a008968b64ea2955d2"
 		},
 		{
 			"packageName": "XXXXX",
-      "version": "5.9.07",
+      			"version": "5.9.07",
 			"sha1": "e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
 		}, ...
 		]
@@ -32,21 +34,23 @@ schema info is in the main repo[https://github.com/linux-devops-opensource/pumba
 it will create "existInTarget" (if doesn't exist) and return the object
 
 ``` sh 
-[Session: ]{
+// Session
+{
 	"sid": "abc12",
 	"type":"npm/maven/whatever",
-  "pkgs"[Pks[]]: [
+	// Pkg[]
+	"pkgs": [
 		{
 			"packageName": "XXXX",
-      "version": "1.2.3",
+      			"version": "1.2.3",
 			"sha1": "9a5f699051b1e7073328f2a008968b64ea2955d2", 
-      "existInTarget": false
+      			"existInTarget": false
 		},
 		{
 			"packageName": "XXXXX",
-      "version": "5.9.07",
+      			"version": "5.9.07",
 			"sha1": "e138cc75e040c727b1966fe5e5f8c9aee256fe3b", 
-      "existInTarget": true
+      			"existInTarget": true
 		}, ...
 		]
 }
