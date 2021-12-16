@@ -64,3 +64,5 @@ typings/
 *.tsbuildinfo
 
 data/sessionsDB.json
+
+.vscode
