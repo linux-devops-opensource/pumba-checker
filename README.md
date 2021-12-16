@@ -15,7 +15,8 @@ schema info is in the main repo[https://github.com/linux-devops-opensource/pumba
 	"sid": "abc12",
 	"type":"npm/maven/whatever",
   	// Pkg[]
-	"pkgs": [
+	"pkgs": 
+	[
 		{
 			"packageName": "XXXX",
       			"version": "1.2.3",
@@ -26,7 +27,7 @@ schema info is in the main repo[https://github.com/linux-devops-opensource/pumba
       			"version": "5.9.07",
 			"sha1": "e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
 		}, ...
-		]
+	]
 }
 ```
 
@@ -39,7 +40,8 @@ it will create "existInTarget" (if doesn't exist) and return the object
 	"sid": "abc12",
 	"type":"npm/maven/whatever",
 	// Pkg[]
-	"pkgs": [
+	"pkgs": 
+	[
 		{
 			"packageName": "XXXX",
       			"version": "1.2.3",
@@ -52,6 +54,6 @@ it will create "existInTarget" (if doesn't exist) and return the object
 			"sha1": "e138cc75e040c727b1966fe5e5f8c9aee256fe3b", 
       			"existInTarget": true
 		}, ...
-		]
+	]
 }
 ```
