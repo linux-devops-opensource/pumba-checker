@@ -3,6 +3,16 @@ import {ApplicationConfig, CheckerApplication} from './application';
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
+
+  // moved the variable check here so that the server won't start if they aren't defined, 
+  // instead of starting the server and then error-ing later 
+  if ( process.env.REPO_BASE_URL == undefined ) {
+    throw new Error('nexus base url is not defined')
+  }
+  if ( process.env.SHA1_SEARCH_API == undefined) {
+    throw new Error('nexus base sha1 search url is not defined')
+  }
+
   const app = new CheckerApplication(options);
   await app.boot();
   await app.start();
